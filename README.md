@@ -3,12 +3,6 @@
 
 ## USAGE
 
-'''sh
-python app/my_script.py
-'''
-
-## Usage
-
 Run an example script:
 
 ```sh
@@ -37,3 +31,19 @@ Install package dependencies:
 ```sh
 pip install -r requirements.txt
 ```
+
+## Configuration
+
+[Obtain an API Key](https://www.alphavantage.co/support/#api-key) from AlphaVantage.
+
+Then create a local ".env" file and provide the key like this:
+
+```sh
+# this is the ".env" file...
+
+ALPHAVANTAGE_API_KEY="_________"
+```
+
+# RUN
+
+ALPHAVANTAGE_API_KEY="abc123" python app/unemployment.py
