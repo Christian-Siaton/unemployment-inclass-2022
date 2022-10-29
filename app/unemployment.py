@@ -5,6 +5,7 @@ import json
 from pprint import pprint
 from dotenv import load_dotenv
 from statistics import mean
+from plotly.express import line
 
 load_dotenv()
 
@@ -15,8 +16,8 @@ request_url = f"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={
 response = requests.get(request_url)
 
 parsed_response = json.loads(response.text)
-print(type(parsed_response))
-pprint(parsed_response)
+# print(type(parsed_response))
+# pprint(parsed_response)
 
 
 # Challenge A
@@ -52,6 +53,15 @@ print ('---------------------')
 print(f'The average unemployment rate is {average_unemployment_rate}%.')
 print('This covers', len(unemployment_rates), 'months.')
 
+# Challenge C
+# 
+# Plot a line chart of unemployment rates over time.
+
+dates = [d["date"] for d in data]
+rates = [float(d["value"]) for d in data]
+
+fig = line(x=dates, y=rates, title="United States Unemployment Rate over time", labels= {"x": "Month", "y": "Unemployment Rate"})
+fig.show()
 
 # type 'exit()' to exit from the Python console back to Command Line
 breakpoint()
