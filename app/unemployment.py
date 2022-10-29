@@ -24,13 +24,33 @@ pprint(parsed_response)
 # What is the most recent unemployment rate? And the corresponding date? 
 # Display the unemployment rate using a percent sign.
 
-latest = parsed_response["data"][0]
+data = parsed_response["data"]
+latest = data[0]
 
 print('----------------------')
 print("The most recent unemployment rate is:", str(latest['value'])+'%.')
 print('The corresponding date is', str(latest['date']) +'.')
 
+# Challenge B
+# 
+# What is the average unemployment rate for all months during this calendar year?
+# ... How many months does this cover?
 
+unemployment_rates = []
+
+for x in data:
+    unemployment_rates.append(x['value'])
+
+sum = 0
+for x in unemployment_rates:
+    sum = float(x) + sum
+
+# Rounding code from https://stackoverflow.com/questions/20457038/how-to-round-to-2-decimals-with-python
+average_unemployment_rate = round(sum / len(unemployment_rates), 5)
+
+print ('---------------------')
+print(f'The average unemployment rate is {average_unemployment_rate}%.')
+print('This covers', len(unemployment_rates), 'months.')
 
 
 # type 'exit()' to exit from the Python console back to Command Line
