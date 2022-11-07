@@ -6,4 +6,4 @@ requests
 
 plotly
 
-
+pytest

@@ -55,3 +55,11 @@ ALPHAVANTAGE_API_KEY="_________"
 # RUN
 
 ALPHAVANTAGE_API_KEY="abc123" python app/unemployment.py
+
+## Testing
+
+Run tests:
+
+```sh
+pytest
+```
